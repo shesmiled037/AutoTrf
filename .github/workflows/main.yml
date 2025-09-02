@@ -39,14 +39,14 @@ jobs:
 
       # Upload bokep_pages folder as artifact
       - name: Upload bokep_pages folder as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: bokep-pages
           path: bokep_pages
 
       # Upload bokep_views folder as artifact
       - name: Upload bokep_views folder as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: bokep-views
           path: bokep_views
