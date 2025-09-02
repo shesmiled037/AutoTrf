@@ -1,9 +1,10 @@
 name: Auto Run Main Scripts
 
 on:
+  push:                      # langsung jalan kalau ada push ke repo
+  workflow_dispatch:         # bisa dijalankan manual dari UI
   schedule:
-    - cron: "0 */4 * * *"   # jalan setiap 4 jam sekali
-  workflow_dispatch:        # bisa dijalankan manual juga
+    - cron: "0 */4 * * *"    # otomatis tiap 4 jam sekali
 
 jobs:
   run-main-scripts:
@@ -24,5 +25,5 @@ jobs:
 
       - name: Run main scripts
         run: |
-          python run.py
-          python view.py
+          run.py
+          view.py
