@@ -1,0 +1,28 @@
+name: Auto Run Main Scripts
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"   # jalan setiap 4 jam sekali
+  workflow_dispatch:        # bisa dijalankan manual juga
+
+jobs:
+  run-main-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt || true
+
+      - name: Run main scripts
+        run: |
+          python run.py
+          python view.py
